@@ -1,11 +1,11 @@
 const express = require("express");
-require("./db/conn");
+const connectDB = require("./db/conn");
 require('dotenv').config();
 const Shoe = require("./model/shoe");
 const app = express();
 const port = process.env.PORT || 5000;
 app.use(express.json());
-
+connectDB();
 // post data 
 
 app.post("/shoes/post-shoe", async(req,res) => {
